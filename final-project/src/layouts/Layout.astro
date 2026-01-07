@@ -14,50 +14,8 @@ const { title = "Corporate Website" } = Astro.props;
 	<body>
 		<Header />
 		<main>
+			
 			<slot />
 		</main>
 	</body>
 </html>
-
-<style>
-	:root {
-		--max-width: 1200px;
-	}
-
-	* {
-		box-sizing: border-box;
-	}
-
-	html,
-	body {
-		margin: 0;
-		padding: 0;
-		width: 100%;
-		font-family: system-ui, sans-serif;
-	}
-
-	main {
-		max-width: var(--max-width);
-		margin: 0 auto;
-		padding: 1rem;
-	}
-
-	/* MOBILE  */
-	h1 {
-		font-size: 2rem;
-	}
-
-	/* TABLET */
-	@media (min-width: 768px) {
-		main {
-			padding: 2rem;
-		}
-	}
-
-	/* DESKTOP */
-	@media (min-width: 1024px) {
-		h1 {
-			font-size: 3rem;
-		}
-	}
-</style>
