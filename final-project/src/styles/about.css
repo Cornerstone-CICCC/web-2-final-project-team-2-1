@@ -74,11 +74,11 @@ font-family: 'Times New Roman', Times, serif;
 
 .about-video {
   width: 100%;
-  max-width: 360px;
+  max-width: 340px;
   aspect-ratio: 16 / 9;
   height: auto;
   display: block;
-  border-radius: 6px;
+  
   background: #000;
 }
 
