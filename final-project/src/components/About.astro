@@ -1,0 +1,123 @@
+---
+import "../styles/about.css";
+---
+
+<section id="about" class="about">
+
+  <!-- left text + right media -->
+  <div class="about-wrap">
+
+    <div class="about-left">
+      <h2>About Us</h2>
+
+      <div class="about-grid">
+        <div>
+          <h3>Our Mission</h3>
+          <p>
+            At Ddsgnr Auto Repair, our mission is to provide our customers with the highest level of car care and customer service.
+          </p>
+        </div>
+
+        <div>
+          <h3>Our Expertise</h3>
+          <p>
+            At Ddsgnr Auto Repair, our technicians are the heart and soul of our business, with years of experience and training.
+          </p>
+        </div>
+
+        <div>
+          <h3>Our Equipment</h3>
+          <p>
+            We use reliable equipment and tools to diagnose issues accurately and complete repairs efficiently.
+          </p>
+        </div>
+
+        <div>
+          <h3>Our Customer Promise</h3>
+          <p>
+            We treat every vehicle like our own and make sure you understand the work before we get started.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-buttons">
+        <button class="buttonAbout-appointment">Book Your Appointment</button>
+        <button class="learn-more-button">Learn More > </button>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <!-- VIDEO LOCAL -->
+      <video class="about-video" controls muted poster="/image-videocar.jpg" >
+        <source src="/car-video.mp4" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+
+  <!-- OUR MISSION -->
+  <section class="our-mission">
+    <img src="/our-mission.png" alt="Our Mission Image" class="our-mission-image" />
+
+    <div class="our-mission-text">
+      <h2>Our Mission</h2>
+      <p>
+        At Ddsgnr Auto Repair, our mission is to provide our customers with the highest level of car care and customer service. We believe that everyone deserves to drive a safe, reliable vehicle, and it is our goal to help make that a reality. With years of experience, state-of-the-art equipment, and a team of highly trained technicians, we are dedicated to restoring your car to its best condition. Whether you need routine maintenance or complex repairs, we are committed to getting you back on the road as quickly and efficiently as possible. Trust us to take care of your car -and you - every step of the way.
+      </p>
+    </div>
+  </section>
+
+<!-- WE WORK ON / BRANDS -->
+<section class="brands" id="brands">
+  <p class="brands-small">We work on</p>
+  <h3>All Makes & Models</h3>
+
+  <div class="brand-logos" id="brandLogos">
+    <img src="/brand1.png" alt="Brand 1" class="brand-logo" />
+    <img src="/brand2.png" alt="Brand 2" class="brand-logo" />
+    <img src="/brand3.png" alt="Brand 3" class="brand-logo" />
+    <img src="/brand4.png" alt="Brand 4" class="brand-logo" />
+    <img src="/brand5.png" alt="Brand 5" class="brand-logo" />
+    <img src="/brand6.png" alt="Brand 6" class="brand-logo" />
+    <img src="/brand7.png" alt="Brand 7" class="brand-logo" />
+    <img src="/brand8.png" alt="Brand 8" class="brand-logo" />
+    <img src="/brand9.png" alt="Brand 9" class="brand-logo" />
+    <img src="/brand10.png" alt="Brand 10" class="brand-logo" />
+    <img src="/brand11.png" alt="Brand 11" class="brand-logo" />
+  </div>
+
+  <!-- Botón View more  -->
+  <button type="button" class="brands-view-more" id="brandsToggle">
+    View more
+  </button>
+</section>
+
+<!--show and hide the logos on the mobile view-->
+<script is:inline>
+  const toggleBtn = document.getElementById("brandsToggle");
+  const brandsSection = document.getElementById("brands");
+
+  // 
+  if (toggleBtn && brandsSection) {
+    toggleBtn.addEventListener("click", () => {
+      brandsSection.classList.toggle("show-all");
+
+      // Change button text
+      if (brandsSection.classList.contains("show-all")) {
+        toggleBtn.textContent = "View less";
+      } else {
+        toggleBtn.textContent = "View more";
+      }
+    });
+  }
+</script>
+<script is:inline>
+  const video = document.getElementById("aboutVideo");
+
+  if (video) {
+    video.addEventListener("loadedmetadata", () => {
+      video.currentTime = 18; 
+    });
+  }
+</script>
