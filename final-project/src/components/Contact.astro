@@ -1,4 +1,389 @@
 
 
-<section class="contact" id="contact"  >
+
+<section id="contact" class="contact">
     
+<section class="contact-us-text">
+    <h1>Contact Us</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</section>
+
+<section class="contact-us">
+    
+    <div class="email-section">
+        <img src="/email.png" alt="Email">
+        <h1>Email</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+        <u>hello@Ddsgnr.io</u>
+    </div>
+
+    <div class="message-section">
+        <img src="/message.png" alt="Chat">
+        <h1>Live Chat</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+        <u>Start new chat</u>
+    </div>
+        
+    <div class="phone-section">
+        <img src="/phone.png" alt="Phone">
+        <h1>Phone</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+        <u>+1 (555) 000-0000</u>
+    </div>
+
+    <div class="address-section">
+        <img src="/address.png" alt="Office">
+        <h1>Office</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+        <u>123 Sample St, Sydney NSW 2000 AU</u>
+    </div>
+</section>
+
+<section class="contact-container">
+    <div class="form-side">
+        <div class="content-wrapper">
+            <p class="tagline">Tagline</p>
+            <h1 class="form-title">Contact us</h1>
+            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                
+            <form id="contact-form">
+                
+                <div class="input-group">
+                    <div class="field">
+                        <label>First name</label>
+                        <input type="text" name="first_name" required />
+                    </div>
+                        
+                    <div class="field">
+                        <label>Last name</label>
+                        <input type="text" name="last_name" required />
+                    </div>
+                </div>
+                    
+                <div class="input-group">
+                    <div class="field">
+                        <label>Phone number</label>
+                        <input 
+                            type="tel" 
+                            name="phone" 
+                            pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}|\([0-9]{3}\) ?[0-9]{3}-?[0-9]{4}"
+                            placeholder="123-456-7890"
+                            title="Please enter a valid 10-digit phone number (e.g., 123-456-7890 or (123) 456-7890)"
+                            minlength="10"
+                            maxlength="14"
+                            required 
+                        />
+                    </div>
+                        
+                    <div class="field">
+                        <label>Email</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                            placeholder="example@email.com"
+                            title="Please enter a valid email address (e.g., example@email.com)"
+                            required 
+                        />
+                    </div>
+                </div>
+                    
+                <div class="field">
+                    <label>Select service</label>
+                    <select name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="oil-change">Oil Change</option>
+                        <option value="tire-rotation">Tire Rotation</option>
+                        <option value="brake-service">Brake Service</option>
+                        <option value="engine-repair">Engine Repair</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Appointment date</label>
+                    <input type="date" name="appointment_date" required />
+                </div>
+                    
+                <div class="field">
+                    <label>Message</label>
+                    <textarea name="message" placeholder="Type your message..." required></textarea>
+                </div>
+                    
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" required />
+                    <label for="terms">I accept the <u>Terms</u></label>
+                </div>
+                    
+                <button type="submit">Submit</button>
+                <div id="status-message" style="display: none; margin-top: 10px; padding: 10px; border-radius: 4px;"></div>
+            </form>
+            </div>
+        </div>
+        
+        <div class="image-side">
+            <img src="/inside-car.png" alt="Inside car"/>
+        </div>
+    </section>
+</section>
+
+<script>
+    import emailjs from '@emailjs/browser';
+
+    const PUBLIC_KEY = 'je1FN3d7a3UuQm2rl';
+    const SERVICE_ID = 'service_s0zfymq';
+    const TEMPLATE_ID = 'template_bq589yr';
+
+    emailjs.init(PUBLIC_KEY);
+
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const statusMessage = document.getElementById('status-message') as HTMLDivElement;
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        try {
+            await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
+            
+            statusMessage.textContent = 'Thank you! Your message has been sent successfully.';
+            statusMessage.style.display = 'block';
+            statusMessage.style.backgroundColor = '#d4edda';
+            statusMessage.style.color = '#155724';
+            statusMessage.style.border = '1px solid #c3e6cb';
+
+            form.reset();
+
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 5000);
+        } catch (error) {
+            statusMessage.textContent = 'Oops! Something went wrong. Please try again.';
+            statusMessage.style.display = 'block';
+            statusMessage.style.backgroundColor = '#f8d7da';
+            statusMessage.style.color = '#721c24';
+            statusMessage.style.border = '1px solid #f5c6cb';
+
+            console.error('EmailJS error:', error);
+
+            setTimeout(() => {
+                statusMessage.style.display = 'none';
+            }, 5000);
+        } finally {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }
+    });
+</script>
+
+<style>
+    .contact-us-text {
+        padding-bottom: 50px;
+        text-align: center;
+    }
+
+    .contact-us-text p {
+        margin-top: 10px;
+    }
+
+    .contact-us {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 150px;
+    }
+
+    .contact-us h1 {
+        font-size: 1.5rem;
+    }
+
+    .contact-us p {
+        width: 300px;
+    }
+    
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        font-family: sans-serif;
+        margin-top: 150px;
+        background: #F7F7F7;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }    
+    
+    .form-side {
+        flex: 1;
+        min-width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-side {
+        flex: 1;
+        min-width: 400px;
+        padding: 100px; 
+        box-sizing: border-box;
+    }
+    
+    .content-wrapper {
+        max-width: 550px;
+        width: 100%;
+        padding: 60px 40px;
+        margin-left: 50px;
+    }    
+    
+    h1 { 
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 20px 0; 
+    }
+
+    .form-title {
+        margin: 10px 0 20px 0;
+    }
+    
+    .tagline { 
+        font-weight: bold; 
+        font-size: 0.9rem; 
+    }
+    
+    .description { 
+        color: black;
+        margin-bottom: 30px; 
+    }
+    
+    form {
+        display: flex; 
+        flex-direction: column;
+        gap: 20px; 
+    }
+    
+    .input-group { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px; 
+    }
+    
+    .field { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 5px; 
+    }
+    
+    input, select, textarea {
+        padding: 12px;
+        border: 1px solid #000;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+    
+    textarea { 
+        height: 120px; 
+        resize: none; 
+    }
+    
+    .checkbox-group { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        font-size: 0.9rem;
+    }
+    
+    button {
+        background: black;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: fit-content;
+        font-weight: 400;
+    }
+    
+    .image-side img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .contact-us {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 0;
+            padding: 0;
+        }
+
+        .contact-us-text {
+            padding-bottom: 10px;
+        }
+
+        .contact-us img {
+            width: 30px;
+        }
+
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: start;
+        }
+
+        .contact-us-text p {
+            width: 90%;
+            text-align: start;
+        }
+
+        .contact-us p {
+            font-size: 0.85rem;
+            width: 90%;
+        }
+
+        .contact-us u {
+            font-size: 0.85rem;
+        }
+
+        .contact-container {
+            flex-direction: column;
+        }
+
+        .input-group {
+            grid-template-columns: 1fr;
+        }
+
+        .image-side {
+            display: none;
+        }
+
+        .form-side {
+            min-width: 100%;
+        }
+
+        .content-wrapper {
+            margin-left: 0;
+            padding: 40px 20px;
+        }
+
+        .tagline {
+            display: none;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>

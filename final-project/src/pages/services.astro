@@ -1,0 +1,262 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Services">
+  <section class="brands-section">
+    <div class="container text-center">
+      <p class="subtitle">We work on</p>
+      <h1>All Makes & Models</h1>
+      
+      <div class="brands-grid">
+        <img src="/kia-motors.png" alt="Kia" />
+        <img src="/bmw.png" alt="BMW" class="brand-extra" />
+        <img src="/mercedes-benz.png" alt="Mercedes" />
+        <img src="/hyundai.png" alt="Hyundai" class="brand-extra" />
+        <img src="/honda.png" alt="Honda" class="brand-extra" />
+        <img src="/acura.png" alt="Acura" class="brand-extra" />
+        <img src="/ford.png" alt="Ford" />
+        
+        <img src="/hyundai.png" alt="Hyundai" class="brand-extra" />
+        <img src="/kia-motors.png" alt="Kia" class="brand-extra" />
+        <img src="/mercedes-benz.png" alt="Mercedes" class="brand-extra" />
+        <img src="/ford.png" alt="Ford" class="brand-extra" />
+      </div>
+
+      <div class="brands-button-wrapper">
+        <button id="viewMoreBrands" class="btn-view-more">View more</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="our-services gray-bg">
+    <div class="full-content text-center">
+      <div class="header-text">
+        <h2>Our Services</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      
+      <div class="services-grid" id="servicesGrid">
+        <div class="service-card"><img src="/engine services.png"></div>
+        <div class="service-card"><img src="/air conditioning.png"></div>
+        <div class="service-card"><img src="/engine services2.png"></div>
+
+        <div class="service-card extra-services"><img src="/engine management.png"></div>
+        <div class="service-card extra-services"><img src="/steering.png"></div>
+        <div class="service-card extra-services"><img src="/wheel.png"></div>
+      </div>
+
+      <div class="button-wrapper">
+        <button id="viewMoreBtn" class="btn-view-more">View more</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials gray-bg">
+    <div class="full-content text-center">
+      <div class="header-text">
+        <h2>Customer testimonials</h2>
+        <p>Check reviews from our clients</p>
+      </div>
+
+      <div class="testimonials-content">
+        <img src="/Content.png" alt="Testimonials Desktop" class="full-width-img desktop-only">
+        
+        <img src="/Content-mobile.png" alt="Testimonials Mobile" class="full-width-img mobile-only">
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+
+  .subtitle { 
+    font-size: 20px; 
+    font-weight: bold; 
+    align-items: start;
+  }
+
+  .h1 { 
+    font-size: 42px; 
+    margin-top: 10px; 
+  }
+
+  .text-center { 
+    text-align: center; 
+  }
+
+  .brands-grid {
+    margin: 0 auto 40px;
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+  }
+
+  .brands-grid img { 
+    width: auto;
+    max-width: 150px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .gray-bg {
+    background-color: #F7F7F7;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+
+  .full-content { 
+    width: 100%; 
+    padding: 50px 0 80px; 
+  }
+
+  .header-text { 
+    padding: 0 20px; 
+    margin-bottom: 40px; 
+  }
+
+  .header-text h2 { 
+    font-size: 40px; 
+    font-weight: 700; 
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+
+  .service-card { 
+    border-radius: 5px;
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+
+  .service-card img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+  }
+
+  .button-wrapper, .brands-button-wrapper {
+    display: none;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .btn-view-more {
+    padding: 12px 32px;
+    border: 1px solid black;
+    background-color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 200px;
+  }
+
+  .testimonials-content { 
+    margin: 0 auto; 
+    width: 92%; 
+    max-width: 1200px; 
+  }
+
+  .full-width-img { 
+    width: 100%; 
+    height: auto; 
+    display: block; 
+  }
+
+
+  .mobile-only { 
+    display: none; 
+  }
+
+  .desktop-only { 
+    display: block; 
+  }
+
+  @media (max-width: 768px) {
+
+    .brands-grid { 
+      flex-direction: column;
+      gap: 40px; 
+      margin-bottom: 20px; 
+    }
+
+    .brand-extra { 
+      display: none; 
+    }
+
+    .show-brands { 
+      display: block !important; 
+    }
+
+    .button-wrapper, .brands-button-wrapper { 
+      display: flex;
+    }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+      width: 90%;
+      gap: 30px;
+    }
+    .extra-services { 
+      display: none; 
+    }
+
+    .show-all { 
+      display: block !important; 
+    }
+    
+    h1, .header-text h2 { 
+      font-size: 30px; 
+    }
+
+    .desktop-only { 
+      display: none; 
+    }
+
+    .mobile-only { 
+      display: block; 
+      margin: 0 auto; 
+      width: 100%; 
+    }
+  }
+</style>
+
+<script>
+  const btnServices = document.getElementById('viewMoreBtn');
+  const extraServices = document.querySelectorAll('.extra-services');
+  if (btnServices) {
+    btnServices.addEventListener('click', () => {
+      extraServices.forEach(card => card.classList.toggle('show-all'));
+      btnServices.innerText = btnServices.innerText.toLowerCase() === 'view more' ? 'View less' : 'View more';
+    });
+  }
+
+  const btnBrands = document.getElementById('viewMoreBrands');
+  const extraBrands = document.querySelectorAll('.brand-extra');
+  if (btnBrands) {
+    btnBrands.addEventListener('click', () => {
+      extraBrands.forEach(brand => brand.classList.toggle('show-brands'));
+      btnBrands.innerText = btnBrands.innerText.toLowerCase() === 'view more' ? 'View less' : 'View more';
+    });
+  }
+</script>
