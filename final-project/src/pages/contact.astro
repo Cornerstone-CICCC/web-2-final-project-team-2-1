@@ -3,7 +3,313 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contact Us">
-    <section>
+    <section class="contact-us-text">
         <h1>Contact Us</h1>
-        <p>...</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </section>
+
+    <section class="contact-us">
+        <div class="email-section">
+            <img src="/email.png" alt="Email">
+            <h1>Email</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+            <u>hello@Ddsgnr.io</u>
+        </div>
+
+        <div class="message-section">
+            <img src="/message.png" alt="Chat">
+            <h1>Live Chat</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+            <u>Start new chat</u>
+        </div>
+        
+        <div class="phone-section">
+            <img src="/phone.png" alt="Phone">
+            <h1>Phone</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+            <u>+1 (555) 000-0000</u>
+        </div>
+
+        <div class="address-section">
+            <img src="/address.png" alt="Office">
+            <h1>Office</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.</p>
+            <u>123 Sample St, Sydney NSW 2000 AU</u>
+        </div>
+    </section>
+    
+    <section class="contact-container">
+        <div class="form-side">
+            <div class="content-wrapper">
+                <p class="tagline">Tagline</p>
+                <h1 class="form-title">Contact us</h1>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                
+                <form>
+                    <div class="input-group">
+                        <div class="field">
+                            <label>First name</label>
+                            <input type="text" />
+                        </div>
+                        
+                        <div class="field">
+                            <label>Last name</label>
+                            <input type="text" />
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="field">
+                            <label>Phone number</label>
+                            <input type="tel" />
+                        </div>
+                        
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" />
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label>Select service</label>
+                        <select>
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Appointment date</label>
+                        <select>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    
+                    <div class="field">
+                        <label>Message</label>
+                        <textarea placeholder="Type your message..."></textarea>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" />
+                        <label for="terms">I accept the <u>Terms</u></label>
+                    </div>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="image-side">
+            <img src="/inside-car.png" alt="Inside car"/>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .contact-us-text {
+        padding-bottom: 50px;
+        text-align: center;
+    }
+
+    .contact-us-text p {
+        margin-top: 10px;
+    }
+
+    .contact-us {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+        margin-left: -80px;
+        padding: 0 20px;
+    }
+
+    .contact-us h1 {
+        font-size: 1.5rem;
+    }
+
+    .contact-us p {
+        width: 300px;
+    }
+    
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        font-family: sans-serif;
+        margin-top: 150px;
+        background: #F7F7F7;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }    
+    
+    .form-side {
+        flex: 1;
+        min-width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-side {
+        flex: 1;
+        min-width: 400px;
+        padding: 100px; 
+        box-sizing: border-box;
+    }
+    
+    .content-wrapper {
+        max-width: 550px;
+        width: 100%;
+        padding: 60px 40px;
+        margin-left: 50px;
+    }    
+    
+    h1 { 
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 20px 0; 
+    }
+
+    .form-title {
+        margin: 10px 0 20px 0;
+    }
+    
+    .tagline { 
+        font-weight: bold; 
+        font-size: 0.9rem; 
+    }
+    
+    .description { 
+        color: black;
+        margin-bottom: 30px; 
+    }
+    
+    form {
+        display: flex; 
+        flex-direction: column;
+        gap: 20px; 
+    }
+    
+    .input-group { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px; 
+    }
+    
+    .field { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 5px; 
+    }
+    
+    input, select, textarea {
+        padding: 12px;
+        border: 1px solid #000;
+        border-radius: 4px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+    
+    textarea { 
+        height: 120px; 
+        resize: none; 
+    }
+    
+    .checkbox-group { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        font-size: 0.9rem;
+    }
+    
+    button {
+        background: black;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: fit-content;
+        font-weight: 400;
+    }
+    
+    .image-side img {
+        width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .contact-us {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 0;
+            padding: 0;
+        }
+
+        .contact-us-text {
+            padding-bottom: 10px;
+        }
+
+        .contact-us img {
+            width: 30px;
+        }
+
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: start;
+        }
+
+        .contact-us-text p {
+            width: 90%;
+            text-align: start;
+        }
+
+        .contact-us p {
+            font-size: 0.85rem;
+            width: 90%;
+        }
+
+        .contact-us u {
+            font-size: 0.85rem;
+        }
+
+        .contact-container {
+            flex-direction: column;
+        }
+
+        .input-group {
+            grid-template-columns: 1fr;
+        }
+
+        .image-side {
+            display: none;
+        }
+
+        .form-side {
+            min-width: 100%;
+        }
+
+        .content-wrapper {
+            margin-left: 0;
+            padding: 40px 20px;
+        }
+
+        .tagline {
+            display: none;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>
