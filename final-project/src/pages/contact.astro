@@ -61,12 +61,28 @@ import Layout from "../layouts/Layout.astro";
                     <div class="input-group">
                         <div class="field">
                             <label>Phone number</label>
-                            <input type="tel" name="phone" required />
+                            <input 
+                                type="tel" 
+                                name="phone" 
+                                pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}|\([0-9]{3}\) ?[0-9]{3}-?[0-9]{4}"
+                                placeholder="123-456-7890"
+                                title="Please enter a valid 10-digit phone number (e.g., 123-456-7890 or (123) 456-7890)"
+                                minlength="10"
+                                maxlength="14"
+                                required 
+                            />
                         </div>
                         
                         <div class="field">
                             <label>Email</label>
-                            <input type="email" name="email" required />
+                            <input 
+                                type="email" 
+                                name="email" 
+                                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                                placeholder="example@email.com"
+                                title="Please enter a valid email address (e.g., example@email.com)"
+                                required 
+                            />
                         </div>
                     </div>
                     
@@ -131,22 +147,18 @@ import Layout from "../layouts/Layout.astro";
             try {
                 await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
                 
-                // Show success message
                 statusMessage.textContent = 'Thank you! Your message has been sent successfully.';
                 statusMessage.style.display = 'block';
                 statusMessage.style.backgroundColor = '#d4edda';
                 statusMessage.style.color = '#155724';
                 statusMessage.style.border = '1px solid #c3e6cb';
 
-                // Reset form
                 form.reset();
 
-                // Hide message after 5 seconds
                 setTimeout(() => {
                     statusMessage.style.display = 'none';
                 }, 5000);
             } catch (error) {
-                // Show error message
                 statusMessage.textContent = 'Oops! Something went wrong. Please try again.';
                 statusMessage.style.display = 'block';
                 statusMessage.style.backgroundColor = '#f8d7da';
