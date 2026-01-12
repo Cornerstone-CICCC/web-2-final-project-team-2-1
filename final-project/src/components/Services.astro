@@ -57,9 +57,94 @@
       </div>
 
       <div class="testimonials-content">
-        <img src="/Content.png" alt="Testimonials Desktop" class="full-width-img desktop-only">
-        
-        <img src="/Content-mobile.png" alt="Testimonials Mobile" class="full-width-img mobile-only">
+        <div class="testimonials-wrapper">
+          <button class="nav-arrow prev-arrow" aria-label="Previous testimonial">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+
+          <div class="testimonials-slider">
+            <div class="testimonial-card">
+              <div class="logo">webflow</div>
+              <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+              <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="Customer" class="author-avatar">
+                <div class="author-details">
+                  <div class="author-name">Name Surname</div>
+                  <div class="author-position">Position, Company name</div>
+                </div>
+              </div>
+              <a href="#" class="case-study-link">Read case study →</a>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="logo">webflow</div>
+              <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+              <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Customer" class="author-avatar">
+                <div class="author-details">
+                  <div class="author-name">Name Surname</div>
+                  <div class="author-position">Position, Company name</div>
+                </div>
+              </div>
+              <a href="#" class="case-study-link">Read case study →</a>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="logo">webflow</div>
+              <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+              <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="Customer" class="author-avatar">
+                <div class="author-details">
+                  <div class="author-name">Name Surname</div>
+                  <div class="author-position">Position, Company name</div>
+                </div>
+              </div>
+              <a href="#" class="case-study-link">Read case study →</a>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="logo">webflow</div>
+              <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+              <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop" alt="Customer" class="author-avatar">
+                <div class="author-details">
+                  <div class="author-name">Name Surname</div>
+                  <div class="author-position">Position, Company name</div>
+                </div>
+              </div>
+              <a href="#" class="case-study-link">Read case study →</a>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="logo">webflow</div>
+              <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."</p>
+              <div class="author-info">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop" alt="Customer" class="author-avatar">
+                <div class="author-details">
+                  <div class="author-name">Name Surname</div>
+                  <div class="author-position">Position, Company name</div>
+                </div>
+              </div>
+              <a href="#" class="case-study-link">Read case study →</a>
+            </div>
+          </div>
+
+          <button class="nav-arrow next-arrow" aria-label="Next testimonial">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="dots-container">
+          <button class="dot active" data-index="0" aria-label="Go to slide 1"></button>
+          <button class="dot" data-index="1" aria-label="Go to slide 2"></button>
+          <button class="dot" data-index="2" aria-label="Go to slide 3"></button>
+          <button class="dot" data-index="3" aria-label="Go to slide 4"></button>
+          <button class="dot" data-index="4" aria-label="Go to slide 5"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -174,6 +259,138 @@
     max-width: 1200px; 
   }
 
+  .testimonials-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .nav-arrow {
+    background: white;
+    border: 1px solid #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .nav-arrow:hover {
+    background: #000;
+    color: white;
+  }
+
+  .nav-arrow svg {
+    stroke: currentColor;
+  }
+
+  .testimonials-slider {
+    display: flex;
+    gap: 30px;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .testimonial-card {
+    min-width: calc(33.333% - 20px);
+    background: white;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 35px 30px;
+    box-sizing: border-box;
+    text-align: left;
+    transition: transform 0.3s ease;
+  }
+
+  .logo {
+    font-family: serif;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  .testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #000;
+  }
+
+  .author-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .author-details {
+    text-align: left;
+  }
+
+  .author-name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .author-position {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .case-study-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block;
+  }
+
+  .case-study-link:hover {
+    text-decoration: underline;
+  }
+
+  .dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d9d9d9;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+  }
+
+  .dot.active {
+    background: #000;
+  }
+
+  .dot:hover {
+    background: #666;
+  }
+
   .full-width-img { 
     width: 100%; 
     height: auto; 
@@ -235,6 +452,23 @@
       margin: 0 auto; 
       width: 100%; 
     }
+
+    .testimonials-wrapper {
+      gap: 15px;
+    }
+
+    .nav-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .testimonial-card {
+      min-width: 100%;
+    }
+
+    .testimonials-content {
+      width: 85%;
+    }
   }
 </style>
 
@@ -256,4 +490,86 @@
       btnBrands.innerText = btnBrands.innerText.toLowerCase() === 'view more' ? 'View less' : 'View more';
     });
   }
+
+  const slider = document.querySelector('.testimonials-slider');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const prevBtn = document.querySelector('.prev-arrow');
+  const nextBtn = document.querySelector('.next-arrow');
+  const dots = document.querySelectorAll('.dot');
+  
+  let currentIndex = 0;
+  const totalCards = cards.length;
+  
+  function getVisibleCards() {
+    return window.innerWidth <= 768 ? 1 : 3;
+  }
+  
+  function updateSlider() {
+    const visibleCards = getVisibleCards();
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 30;
+    const offset = currentIndex * (cardWidth + gap);
+    
+    if (slider) {
+      slider.style.transform = `translateX(-${offset}px)`;
+    }
+    
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+    
+    if (prevBtn && nextBtn) {
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= totalCards - visibleCards;
+      
+      prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+      nextBtn.style.opacity = currentIndex >= totalCards - visibleCards ? '0.5' : '1';
+    }
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const visibleCards = getVisibleCards();
+      if (currentIndex < totalCards - visibleCards) {
+        currentIndex++;
+        updateSlider();
+      }
+    });
+  }
+  
+  dots.forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const index = parseInt(target.dataset.index || '0');
+      const visibleCards = getVisibleCards();
+      
+      if (index <= totalCards - visibleCards) {
+        currentIndex = index;
+        updateSlider();
+      }
+    });
+  });
+  
+  let resizeTimer: number;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const visibleCards = getVisibleCards();
+      if (currentIndex > totalCards - visibleCards) {
+        currentIndex = Math.max(0, totalCards - visibleCards);
+      }
+      updateSlider();
+    }, 250);
+  });
+  
+  updateSlider();
 </script>

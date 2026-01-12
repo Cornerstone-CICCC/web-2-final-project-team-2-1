@@ -45,56 +45,60 @@ import Layout from "../layouts/Layout.astro";
                 <h1 class="form-title">Contact us</h1>
                 <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 
-                <form>
+                <form id="contact-form">
                     <div class="input-group">
                         <div class="field">
                             <label>First name</label>
-                            <input type="text" />
+                            <input type="text" name="first_name" required />
                         </div>
                         
                         <div class="field">
                             <label>Last name</label>
-                            <input type="text" />
+                            <input type="text" name="last_name" required />
                         </div>
                     </div>
                     
                     <div class="input-group">
                         <div class="field">
                             <label>Phone number</label>
-                            <input type="tel" />
+                            <input type="tel" name="phone" required />
                         </div>
                         
                         <div class="field">
                             <label>Email</label>
-                            <input type="email" />
+                            <input type="email" name="email" required />
                         </div>
                     </div>
                     
                     <div class="field">
                         <label>Select service</label>
-                        <select>
-                            <option value=""></option>
+                        <select name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="oil-change">Oil Change</option>
+                            <option value="tire-rotation">Tire Rotation</option>
+                            <option value="brake-service">Brake Service</option>
+                            <option value="engine-repair">Engine Repair</option>
+                            <option value="other">Other</option>
                         </select>
                     </div>
 
                     <div class="field">
                         <label>Appointment date</label>
-                        <select>
-                            <option value=""></option>
-                        </select>
+                        <input type="date" name="appointment_date" required />
                     </div>
                     
                     <div class="field">
                         <label>Message</label>
-                        <textarea placeholder="Type your message..."></textarea>
+                        <textarea name="message" placeholder="Type your message..." required></textarea>
                     </div>
                     
                     <div class="checkbox-group">
-                        <input type="checkbox" id="terms" />
+                        <input type="checkbox" id="terms" required />
                         <label for="terms">I accept the <u>Terms</u></label>
                     </div>
                     
                     <button type="submit">Submit</button>
+                    <div id="status-message" style="display: none; margin-top: 10px; padding: 10px; border-radius: 4px;"></div>
                 </form>
             </div>
         </div>
@@ -103,6 +107,63 @@ import Layout from "../layouts/Layout.astro";
             <img src="/inside-car.png" alt="Inside car"/>
         </div>
     </section>
+
+    <script>
+        import emailjs from '@emailjs/browser';
+
+        const PUBLIC_KEY = 'je1FN3d7a3UuQm2rl';
+        const SERVICE_ID = 'service_s0zfymq';
+        const TEMPLATE_ID = 'template_bq589yr';
+
+        emailjs.init(PUBLIC_KEY);
+
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        const statusMessage = document.getElementById('status-message') as HTMLDivElement;
+
+        form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+
+            try {
+                await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
+                
+                // Show success message
+                statusMessage.textContent = 'Thank you! Your message has been sent successfully.';
+                statusMessage.style.display = 'block';
+                statusMessage.style.backgroundColor = '#d4edda';
+                statusMessage.style.color = '#155724';
+                statusMessage.style.border = '1px solid #c3e6cb';
+
+                // Reset form
+                form.reset();
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            } catch (error) {
+                // Show error message
+                statusMessage.textContent = 'Oops! Something went wrong. Please try again.';
+                statusMessage.style.display = 'block';
+                statusMessage.style.backgroundColor = '#f8d7da';
+                statusMessage.style.color = '#721c24';
+                statusMessage.style.border = '1px solid #f5c6cb';
+
+                console.error('EmailJS error:', error);
+
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            } finally {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }
+        });
+    </script>
 </Layout>
 
 <style>
