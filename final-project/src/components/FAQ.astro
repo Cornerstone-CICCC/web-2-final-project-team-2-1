@@ -1,0 +1,109 @@
+<section id="faq" class="faq">
+  <div class="faq-container">
+    <h2>FAQs</h2>
+    <p class="faq-subtitle">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+
+    <div class="faq-list">
+      <details>
+        <summary>Question text goes here</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+
+      <details>
+        <summary>Question text goes here</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+
+      <details>
+        <summary>Question text goes here</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+
+      <details>
+        <summary>Question text goes here</summary>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </details>
+    </div>
+
+    <div class="faq-cta">
+      <h3>Still have a question?</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <a href="#contact" class="faq-btn">Contact</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.faq {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.faq-subtitle {
+  margin-bottom: 40px;
+}
+
+.faq-list details {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: 500;
+  list-style: none;
+}
+
+.faq-list summary::after {
+  content: "+";
+  float: right;
+}
+
+details[open] summary::after {
+  content: "–";
+}
+
+.faq-list p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.faq-cta {
+  margin-top: 50px;
+}
+
+.faq-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 22px;
+  border: 1px solid #000;
+  text-decoration: none;
+  color: #000;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .faq {
+    padding: 60px 16px;
+  }
+
+  .faq h2 {
+    font-size: 26px;
+  }
+}
+</style>
