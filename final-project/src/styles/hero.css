@@ -46,6 +46,8 @@
   font-size: 12px;
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
 }
 
 /* Desktop */

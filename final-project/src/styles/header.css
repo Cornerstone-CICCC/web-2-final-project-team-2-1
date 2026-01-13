@@ -80,6 +80,8 @@ html, body {
   font-size: 12px;
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
 }
 
 /* ========== MOBILE MENU ========== */
